@@ -1,1 +1,1 @@
-# web-dev-course-SSU-2021
+# Web Development Course 2021
