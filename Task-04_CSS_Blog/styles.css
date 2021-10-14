@@ -1,0 +1,60 @@
+html,body {
+    width: 100%;
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+}
+.blog-header {
+    display: table;
+    width: 100%;
+    height: 100px;
+    background: cadetblue;
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.header-title {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+.blog-aside-right,
+.blog-main,
+.blog-aside-left {
+    display: inline-block;
+    vertical-align: top;
+}
+.blog-aside-right {
+    width: 20%;
+    border: 2px dotted cadetblue;
+    padding: 10px 20px 0 0;
+    text-align: end;
+    box-sizing: border-box;
+}
+.blog-aside-left {
+    width: 20%;
+    padding: 10px 0 0 20px;
+    box-sizing: border-box;
+}
+.blog-main {
+    width: 60%;
+    border-left: 2px solid cadetblue;
+    padding: 20px 0 0 20px;
+    box-sizing: border-box;
+}
+.blog-footer {
+    height: 50px;
+    text-align: center;
+}
+.navbar-links {
+    list-style: none;
+    padding: 0;
+}
+a:hover {
+    color: rgb(56, 180, 174);
+}
+a:visited {
+    color: rgb(30, 102, 98);
+}
+h2 {
+    margin: 0;
+}
