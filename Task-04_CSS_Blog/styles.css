@@ -24,24 +24,22 @@ html,body {
 .blog-aside-left {
     display: inline-block;
     vertical-align: top;
+    box-sizing: border-box;
 }
 .blog-aside-right {
     width: 20%;
     border: 2px dotted cadetblue;
     padding: 10px 20px 0 0;
     text-align: end;
-    box-sizing: border-box;
 }
 .blog-aside-left {
     width: 20%;
     padding: 10px 0 0 20px;
-    box-sizing: border-box;
 }
 .blog-main {
     width: 60%;
     border-left: 2px solid cadetblue;
     padding: 20px 0 0 20px;
-    box-sizing: border-box;
 }
 .blog-footer {
     height: 50px;
@@ -59,4 +57,16 @@ a:visited {
 }
 h2 {
     margin: 0;
+}
+#post1 img {
+    width: 350px;
+    height: 240px;
+}
+#post2 img {
+    width: 400px;
+    height: 250px;
+}
+#post3 img {
+    width: 400px;
+    height: 250px;
 }
