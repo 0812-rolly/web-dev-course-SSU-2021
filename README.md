@@ -10,4 +10,4 @@ https://0812-rolly.github.io/web-dev-course-SSU-2021/Task-02_HTML_CV/index.html
 https://0812-rolly.github.io/web-dev-course-SSU-2021/Task-03_CSS_Selectors/index.html
 
 ## Task #4
-https://0812-rolly.github.io/web-dev-course-SSU-2021/Task-04_CSS_CV/index.html
+https://0812-rolly.github.io/web-dev-course-SSU-2021/Task-04_CSS_Blog/index.html
