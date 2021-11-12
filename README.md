@@ -18,5 +18,5 @@ https://0812-rolly.github.io/web-dev-course-SSU-2021/Task-05_CSS_CV/index.html
 ## Task #6 (result in console)
 https://0812-rolly.github.io/web-dev-course-SSU-2021/Task-06_JS-Basics/index.html
 
-## Task #6 (result in console)
+## Task #7 (result in console)
 https://0812-rolly.github.io/web-dev-course-SSU-2021/Task-07_JS-Advanced/index.html
