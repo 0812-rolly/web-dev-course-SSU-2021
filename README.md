@@ -22,4 +22,4 @@ https://0812-rolly.github.io/web-dev-course-SSU-2021/Task-06_JS-Basics/index.htm
 https://0812-rolly.github.io/web-dev-course-SSU-2021/Task-07_JS-Advanced/index.html
 
 ## Task #8 (result in console)
-https://0812-rolly.github.io/web-dev-course-SSU-2021/Task-08_JS-Functions/index.html
+https://0812-rolly.github.io/web-dev-course-SSU-2021/Task-08_JS_Functions/index.html
