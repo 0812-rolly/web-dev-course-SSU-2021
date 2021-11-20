@@ -28,7 +28,7 @@ let dividedBy = (fn) => [fn, '/'];
         }
 }
 
-console.log("fntion calculator: ")
+console.log("Function calculator: ")
 console.log(seven(times(five())));
 console.log(four(plus(nine())));
 console.log(eight(minus(three())));
