@@ -76,7 +76,7 @@ span {
     border-color: tomato;
 }
 .result {
-    margin-top: 2.5rem;
+    margin: 2.5rem 0 1rem 0;
     overflow-wrap: break-word;
     line-height: 2.5rem;
     font-weight: 300;
