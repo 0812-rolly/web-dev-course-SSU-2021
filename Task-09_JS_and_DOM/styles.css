@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3rem;
+    color: whitesmoke;
+    background-image: url(./images/background.png);
+}
+input {
+    outline: none;
+    border-radius: 0.3rem;
+    border: 1px solid #ccc;
+    color: #262626;
+    cursor: pointer;
+    align-items: center;
+    text-align: start;
+    width: 60%;
+    font-size: 0.95rem;
+    padding: 0.8rem 1.5rem;
+    margin-top: 1rem;
+    margin-right: 3rem;
+}
+.header {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 3rem;
+}
+.wrapper {
+    margin: 5rem auto;
+    padding: 5rem  9rem 3.5rem 9rem;
+    width: 80%;
+    background: rgb(119, 137, 168);
+}
+.section--title {
+    font-weight: 500;
+}
+.section--text {
+    font-weight: 300;
+}
+.flex-section {
+    display: flex;
+    align-items: baseline;
+}
+.button {
+    display: inline-block;
+    font-weight: normal;
+    line-height: 1.25;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    outline: none;
+}
+.button:hover {
+    transform: scale(1.1);
+}
+.binary-clearButton,
+.degree-clearButton,
+.eleminate-clearButton {
+    color: #fff;
+    background-color: #4b4b4b;
+    border-color: #4b4b4b;
+}
+.result {
+    margin-top: 2.5rem;
+    overflow-wrap: break-word;
+    line-height: 2.5rem;
+}

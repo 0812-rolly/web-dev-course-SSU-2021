@@ -5,50 +5,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <title>Task 9</title>
 </head>
 
 <body>
-    <h1>Выбери функцию и протестируй её!</h1>
-
-    <div>
-        <h3>Бинарное слово</h3>
-        <p>
-            Данная функция принимает на вход строку ASCII символов и возвращает массив строк,
-            каждый элемент которого является ASCII-кодом соответствующего символа в двоичном формате.
-        </p>
-        <input id="binary-input" type="text" placeholder="Введите слово">
-        <button class="binary-clearButton">Очистить</button>
-        <button class="button binary-button">Выполнить</button>
-        <div class="binary-result"></div>
+    <div class="wrapper">
+        <h1 class="header">Выбери функцию и протестируй её!</h1>
+        <div class="section">
+            <h2 class="section--title">Бинарное слово</h2>
+            <p class="section--text">
+                Данная функция принимает на вход строку ASCII символов и возвращает массив строк,
+                каждый элемент которого является ASCII-кодом соответствующего символа в двоичном формате.
+            </p>
+            <input id="binary-input" type="text" placeholder="Введите слово">
+            <button class="button binary-clearButton">Очистить</button>
+            <button class="button binary-button">Выполнить</button>
+            <div class="result binary-result"></div>
+        </div>
+        <div class="section">
+            <h2 class="section--title">Формула для (a+b)^n</h2>
+            <p class="section--text">
+                Данная функция принимает на вход число n и возвращает строку с формулой степени суммы для этого числа.
+            </p>
+            <input id="degree-input" type="number" placeholder="Введите n">
+            <button class="button degree-clearButton">Очистить</button>
+            <button class="button degree-button">Выполнить</button>
+            <div class="result degree-result"></div>
+        </div>
+        <div class="section">
+            <h2 class="section--title">Игра на выбывание</h2>
+            <p class="section--text">
+                Данная функция принимает два параметра – количество участников в круге n и шаг k,
+                на котором участник выбывает из круга в ходе одного раунда. Каждый раунд функция исключает одного
+                участника
+                и продолжает определять выбывших по кругу до тех пор, пока круг не сократится до одного победителя, 
+                то есть функция должна работать как считалочка и возвращать номер победителя.</p>
+            <div class="flex-section">
+                <input id="eleminate-input-N" type="number" placeholder="Количество" min="1">
+                <input id="eleminate-input-M" type="number" placeholder="Шаг" min="1">
+                <button class="button eleminate-clearButton">Очистить</button>
+                <button class="button eleminate-button">Выполнить</button>
+            </div>
+            <div class="result eleminate-result"></div>
+        </div>
     </div>
-
-    <div>
-        <h3>Формула для (a+b)^n</h3>
-        <p>
-            Данная функция принимает на вход число n и возвращает строку с формулой степени суммы для этого числа.
-        </p>
-        <input id="degree-input" type="number" placeholder="Введите n">
-        <button class="degree-clearButton">Очистить</button>
-        <button class="button degree-button">Выполнить</button>
-        <div class="degree-result"></div>
-    </div>
-
-    <div>
-        <h3>Игра на выбывание</h3>
-        <p>
-            Данная функция принимает два параметра – количество участников в круге n и шаг k, 
-            на котором участник выбывает из круга в ходе одного раунда. Каждый раунд функция исключает одного участника 
-            и продолжает определять выбывших по кругу до тех пор, пока круг не сократится до одного победителя.
-        </p>
-        <input id="eleminate-input-N" type="number" placeholder="Количество" min="1">
-        <input id="eleminate-input-M" type="number" placeholder="Шаг" min="1">
-        <button class="eleminate-clearButton">Очистить</button>
-        <button class="button eleminate-button">Выполнить</button>
-        <div class="eleminate-result"></div>
-    </div>
-
     <script type="module" src="index.js"></script>
 </body>
 
