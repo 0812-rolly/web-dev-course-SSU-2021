@@ -1,7 +1,3 @@
-/**
- * Webpack main configuration file
- */
-
 const path = require('path');
 const fs = require('fs');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -19,8 +15,7 @@ const htmlPluginEntries = templateFiles.map((template) => new HTMLWebpackPlugin(
   inject: true,
   hash: false,
   filename: template,
-  template: path.resolve(environment.paths.source, template),
-  // favicon: path.resolve(environment.paths.source, 'images', 'favicon.ico'),
+  template: path.resolve(environment.paths.source, template)
 }));
 
 module.exports = {
@@ -105,7 +100,6 @@ module.exports = {
           from: path.resolve(environment.paths.source, 'images', 'content'),
           to: path.resolve(environment.paths.output, 'images', 'content'),
           toType: 'dir',
-          noErrorOnMissing: true,
           globOptions: {
             ignore: ['*.DS_Store', 'Thumbs.db'],
           },
