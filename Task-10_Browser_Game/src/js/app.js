@@ -8,6 +8,27 @@ let frames = 0;
 const sprite = new Image();
 sprite.src = "images/content/sprite.png";
 
+const state = {
+    current : 2,
+    getReady : 0,
+    game : 1,
+    over : 2
+}
+
+document.addEventListener("click", function(e) {
+    switch(state.current){
+        case state.getReady:
+            state.current = state.game;
+            break;
+        case state.game:
+            bird.flap();
+            break;
+        case state.over:
+            state.current = state.getReady;
+            break;
+    }
+});
+
 const background = {
     sX: 0,
     sY: 0,
@@ -55,6 +76,10 @@ const bird = {
         let bird = this.animation[this.frame];
 
         context.drawImage(sprite, bird.sX, bird.sY, this.w, this.h, this.x - this.w/2, this.y - this.h/2, this.w, this.h);
+    },
+
+    flap: function() {
+
     }
 }
 
@@ -67,11 +92,13 @@ const getReady = {
     y: 80,
 
     draw: function() {
-        context.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
+        if(state.current == state.getReady){
+            context.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
+        }
     }
 }
 
-const getOver = {
+const gameOver = {
     sX: 175,
     sY: 228,
     w: 225, 
@@ -80,7 +107,9 @@ const getOver = {
     y: 90,
 
     draw: function() {
-        context.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
+        if(state.current == state.over){
+            context.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
+        }
     }
 }
 
@@ -93,7 +122,7 @@ function draw() {
     foreground.draw();
     bird.draw();
     getReady.draw();
-    getOver.draw();
+    gameOver.draw();
 }
 
 function update() {
