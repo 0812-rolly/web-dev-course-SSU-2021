@@ -71,6 +71,19 @@ const getReady = {
     }
 }
 
+const getOver = {
+    sX: 175,
+    sY: 228,
+    w: 225, 
+    h: 202,
+    x: canvas.width/2 - 225/2, 
+    y: 90,
+
+    draw: function() {
+        context.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
+    }
+}
+
 function draw() {
     context.fillStyle = "#70c5ce";
     context.fillRect(0, 0, canvas.width, canvas.height);
@@ -80,6 +93,7 @@ function draw() {
     foreground.draw();
     bird.draw();
     getReady.draw();
+    getOver.draw();
 }
 
 function update() {
