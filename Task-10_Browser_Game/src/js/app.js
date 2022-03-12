@@ -9,7 +9,7 @@ const sprite = new Image();
 sprite.src = "images/content/sprite.png";
 
 const state = {
-    current : 2,
+    current : 0,
     getReady : 0,
     game : 1,
     over : 2
@@ -71,6 +71,9 @@ const bird = {
     h: 26,
 
     frame: 0,
+    speed: 0,
+    gravity: 0.25,
+    jump: 4,
 
     draw: function() {
         let bird = this.animation[this.frame];
@@ -79,7 +82,31 @@ const bird = {
     },
 
     flap: function() {
+        this.speed = - this.jump;
+    },
 
+    update: function() {
+        this.period = state.current == state.getReady ? 10 : 5;
+
+        this.frame += frames % this.period == 0 ? 1 : 0;
+
+        this.frame = this.frame % this.animation.length;
+
+        if(state.current == state.getReady) {
+            this.y = 150;
+            this.speed = 0;
+        } else {
+            this.speed += this.gravity;
+            this.y += this.speed;
+
+            if(this.y + this.h/2 >= canvas.height - foreground.h) {
+                this.y = canvas.height - foreground.h - this.h/2;
+
+                if(state.current == state.game) {
+                    state.current = state.over;
+                }
+            }
+        }
     }
 }
 
@@ -126,7 +153,7 @@ function draw() {
 }
 
 function update() {
-
+    bird.update();
 }
 
 function loop() {
