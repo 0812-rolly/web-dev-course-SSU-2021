@@ -4,6 +4,7 @@ const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
 
 let frames = 0;
+const DEGREE = Math.PI/180;
 
 const sprite = new Image();
 sprite.src = "images/content/sprite.png";
@@ -51,10 +52,17 @@ const foreground = {
     h: 112,
     x: 0, 
     y: canvas.height - 112,
+    dx: 2,
 
     draw: function() {
         context.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
         context.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x + this.w, this.y, this.w, this.h);
+    },
+
+    update: function() {
+        if(state.current == state.game) {
+            this.x = (this.x - this.dx) % (this.w/2);
+        }
     }
 }
 
@@ -71,14 +79,22 @@ const bird = {
     h: 26,
 
     frame: 0,
+
     speed: 0,
     gravity: 0.25,
     jump: 4,
+    rotation: 0,
 
     draw: function() {
         let bird = this.animation[this.frame];
 
-        context.drawImage(sprite, bird.sX, bird.sY, this.w, this.h, this.x - this.w/2, this.y - this.h/2, this.w, this.h);
+        context.save();
+        context.translate(this.x, this.y);
+        context.rotate(this.rotation);
+
+        context.drawImage(sprite, bird.sX, bird.sY, this.w, this.h, - this.w/2, - this.h/2, this.w, this.h);
+    
+        context.restore();
     },
 
     flap: function() {
@@ -95,6 +111,7 @@ const bird = {
         if(state.current == state.getReady) {
             this.y = 150;
             this.speed = 0;
+            this.rotation = 0 * DEGREE;
         } else {
             this.speed += this.gravity;
             this.y += this.speed;
@@ -105,6 +122,13 @@ const bird = {
                 if(state.current == state.game) {
                     state.current = state.over;
                 }
+            }
+
+            if(this.speed >= this.jump) {
+                this.rotation = 25 * DEGREE;
+                this.frame = 1;
+            } else {
+                this.rotation = -10 * DEGREE;
             }
         }
     }
@@ -154,6 +178,7 @@ function draw() {
 
 function update() {
     bird.update();
+    foreground.update();
 }
 
 function loop() {
