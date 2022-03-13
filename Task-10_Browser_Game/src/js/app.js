@@ -16,7 +16,14 @@ const state = {
     over : 2
 }
 
-document.addEventListener("click", function(e) {
+const startButton = {
+    x: 120,
+    y: 263,
+    w: 83,
+    h: 29
+}
+
+canvas.addEventListener("click", function(e) {
     switch(state.current){
         case state.getReady:
             state.current = state.game;
@@ -25,7 +32,17 @@ document.addEventListener("click", function(e) {
             bird.flap();
             break;
         case state.over:
-            state.current = state.getReady;
+            let rect = canvas.getBoundingClientRect();
+            let clickX = e.clientX - rect.left;
+            let clickY = e.clientY - rect.top;
+
+            if(clickX >= startButton.x && clickX <= startButton.x + startButton.w && clickY >= startButton.y && clickY <= startButton.y + startButton.h) {
+                pipes.reset();
+                bird.speedReset();
+                score.reset();
+                state.current = state.getReady;
+            }
+
             break;
     }
 });
@@ -132,6 +149,10 @@ const bird = {
                 this.rotation = -10 * DEGREE;
             }
         }
+    },
+
+    speedReset: function() {
+        this.speed = 0;
     }
 }
 
@@ -199,6 +220,10 @@ const pipes = {
                 localStorage.setItem("best", score.best);
             }
         }
+    },
+
+    reset: function() {
+        this.position = []
     }
 }
 
@@ -256,6 +281,10 @@ const score = {
             context.strokeText(this.best, 225, 228);
 
         }
+    },
+
+    reset: function() {
+        this.value = 0;
     }
 }
 
