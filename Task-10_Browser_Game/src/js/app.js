@@ -134,6 +134,58 @@ const bird = {
     }
 }
 
+const pipes = {
+    top: {
+        sX: 553,
+        sY: 0
+    },
+    bottom: {
+        sX: 502,
+        sY: 0
+    },
+
+    position: [],
+
+    w: 53,
+    h: 400,
+    gap: 85,
+    maxYPos: -150,
+    dx: 2,
+
+    draw: function() {
+        for(let i = 0; i < this.position.length; i++) {
+            let p = this.position[i];
+
+            let topYPos = p.y;
+            let bottomYPos = p.y + this.h + this.gap;
+
+            context.drawImage(sprite, this.top.sX, this.top.sY, this.w, this.h, p.x, topYPos, this.w, this.h);
+            context.drawImage(sprite, this.bottom.sX, this.bottom.sY, this.w, this.h, p.x, bottomYPos, this.w, this.h);
+
+        }
+    },
+
+    update: function() {
+        if(state.current !== state.game) return;
+
+        if(frames % 100 == 0) {
+            this.position.push({
+                x: canvas.width,
+                y: this.maxYPos * (Math.random() + 1)
+            });
+        }
+
+        for(let i = 0; i < this.position.length; i++) {
+            let p = this.position[i];
+            p.x -= this.dx;
+
+            if(p.x + this.w <= 0) {
+                this.position.shift();
+            }
+        }
+    }
+}
+
 const getReady = {
     sX: 0,
     sY: 228,
@@ -170,6 +222,7 @@ function draw() {
 
     const body = document.getElementById("body");
     background.draw();
+    pipes.draw();
     foreground.draw();
     bird.draw();
     getReady.draw();
@@ -179,6 +232,7 @@ function draw() {
 function update() {
     bird.update();
     foreground.update();
+    pipes.update();
 }
 
 function loop() {
