@@ -193,6 +193,10 @@ const pipes = {
 
             if(p.x + this.w <= 0) {
                 this.position.shift();
+                score.value +=1;
+
+                score.best = Math.max(score.value, score.best);
+                localStorage.setItem("best", score.best);
             }
         }
     }
@@ -228,6 +232,33 @@ const gameOver = {
     }
 }
 
+const score = {
+    best: parseInt(localStorage.getItem('best')) || 0,
+    value: 0,
+
+    draw: function() {
+        context.fillStyle = "#FFF";
+        context.strokeStyle = "#000";
+
+        if(state.current == state.game) {
+            context.lineWidth = 2;
+            context.font = "35px Teko";
+            context.fillText(this.value, canvas.width/2, 50);
+            context.strokeText(this.value, canvas.width/2, 50);
+
+        } else if(state.current == state.over) {
+            //score
+            context.font = "25px Teko";
+            context.fillText(this.value, 225, 186);
+            context.strokeText(this.value, 225, 186);
+            //best score
+            context.fillText(this.best, 225, 228);
+            context.strokeText(this.best, 225, 228);
+
+        }
+    }
+}
+
 function draw() {
     context.fillStyle = "#70c5ce";
     context.fillRect(0, 0, canvas.width, canvas.height);
@@ -239,6 +270,7 @@ function draw() {
     bird.draw();
     getReady.draw();
     gameOver.draw();
+    score.draw();
 }
 
 function update() {
