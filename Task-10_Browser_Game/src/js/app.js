@@ -23,6 +23,7 @@ const startButton = {
     h: 29
 }
 
+
 canvas.addEventListener("click", function(e) {
     switch(state.current){
         case state.getReady:
@@ -173,6 +174,7 @@ const pipes = {
     gap: 85,
     maxYPos: -150,
     dx: 2,
+    
 
     draw: function() {
         for(let i = 0; i < this.position.length; i++) {
@@ -200,13 +202,18 @@ const pipes = {
         for(let i = 0; i < this.position.length; i++) {
             let p = this.position[i];
 
+            const isBirdToTheRight = bird.x + bird.radius > p.x;
+            const isBirdToTheLeft = bird.x - bird.radius < p.x + this.w;
+            const upperBorderOfTheBird = bird.y - bird.radius;
+            const lowerBorderOfTheBird = bird.y + bird.radius;
+            
             let bottomPipeYPos = p.y + this.h + this.gap;
 
-            if(bird.x + bird.radius > p.x && bird.x - bird.radius < p.x + this.w && bird.y + bird.radius > p.y && bird.y - bird.radius < p.y + this.h) {
+            if(isBirdToTheRight && isBirdToTheLeft && lowerBorderOfTheBird > p.y && upperBorderOfTheBird < p.y + this.h) {
                 state.current = state.over;
             }
 
-            if(bird.x + bird.radius > p.x && bird.x - bird.radius < p.x + this.w && bird.y + bird.radius > bottomPipeYPos && bird.y - bird.radius < bottomPipeYPos + this.h) {
+            if(isBirdToTheRight && isBirdToTheLeft && lowerBorderOfTheBird > bottomPipeYPos && upperBorderOfTheBird < bottomPipeYPos + this.h) {
                 state.current = state.over;
             }
 
